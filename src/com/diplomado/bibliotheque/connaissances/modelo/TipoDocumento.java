@@ -11,24 +11,24 @@ package com.diplomado.bibliotheque.connaissances.modelo;
  */
 public class TipoDocumento {
 
-    private String id;
+    private int id;
     private String nombre;
     private String descripcion;
 
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-
+    
     /**
      * @return the nombre
      */
