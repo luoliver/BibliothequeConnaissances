@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.diplomado.bibliotheque.connaissances.vista;
 
-/**
- *
- * @author HP
- */
+import com.diplomado.bibliotheque.connaissances.controlador.TipoDocumentoController;
+import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
+import com.diplomado.bibliotheque.connaissances.modelo.TipoDocumento;
+import java.util.List;
+
 public class principal extends javax.swing.JFrame {
 
     /**
@@ -74,6 +70,14 @@ public class principal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new principal().setVisible(true);
+                Conexion conn = new Conexion();
+                TipoDocumentoController tdc = new TipoDocumentoController(conn.getConnection());
+                List<TipoDocumento> listaTipoDocumento = tdc.consultarTiposDocumentos();
+                for(TipoDocumento tipoDocumento :listaTipoDocumento){
+                    System.out.println("Id del tipo Documento "+tipoDocumento.getId());
+                    System.out.println("Nombre del tipo Documento "+tipoDocumento.getNombre());
+                    System.out.println("Descripcion del tipo Documento "+tipoDocumento.getDescripcion());
+                }
             }
         });
     }

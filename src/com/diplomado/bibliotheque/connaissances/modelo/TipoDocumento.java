@@ -1,34 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.diplomado.bibliotheque.connaissances.modelo;
 
-/**
- *
- * @author HP
- */
 public class TipoDocumento {
 
-    private String id;
+    private int id;
     private String nombre;
     private String descripcion;
 
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-
+    
     /**
      * @return the nombre
      */
