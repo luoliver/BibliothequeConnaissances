@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.diplomado.bibliotheque.connaissances.vista;
 
 import com.diplomado.bibliotheque.connaissances.controlador.TipoDocumentoController;
@@ -10,10 +5,6 @@ import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
 import com.diplomado.bibliotheque.connaissances.modelo.TipoDocumento;
 import java.util.List;
 
-/**
- *
- * @author HP
- */
 public class principal extends javax.swing.JFrame {
 
     /**
