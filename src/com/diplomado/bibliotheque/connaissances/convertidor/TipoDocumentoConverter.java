@@ -8,9 +8,9 @@ public class TipoDocumentoConverter {
     
     public static TipoDocumento sentenciaATipoDocumento(ResultSet sentencia) throws SQLException {
         TipoDocumento tipoDocumento = new TipoDocumento();
-        tipoDocumento.setId(sentencia.getInt(1));
-        tipoDocumento.setNombre(sentencia.getString(2));
-        tipoDocumento.setDescripcion(sentencia.getString(3));
+        tipoDocumento.setId(sentencia.getInt("Id"));
+        tipoDocumento.setNombre(sentencia.getString("Nombre"));
+        tipoDocumento.setDescripcion(sentencia.getString("Descripcion"));
         return tipoDocumento;
     }
 }
