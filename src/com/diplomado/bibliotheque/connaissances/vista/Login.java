@@ -6,9 +6,11 @@
 package com.diplomado.bibliotheque.connaissances.vista;
 
 import com.diplomado.bibliotheque.connaissances.controlador.UsuarioController;
+import com.diplomado.bibliotheque.connaissances.enums.EnumRol;
 import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
 import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -145,7 +147,24 @@ public class Login extends javax.swing.JPanel {
         Usuario usu = uc.logearUsuario(txtUsuario.getText(), txtContrasena.getText());
         if(usu != null){
             System.out.println("Usuario "+usu.getCorreo() + usu.getRol());
-            Home home = new Home(conn, this.principal,usu);
+            JPanel home;
+            switch(usu.getRol().getNombre())
+            {
+                case "ADMINISTRADOR":
+                    System.out.println("Home ADMINISTRADOR");
+                    home = new HomeAdministrador(conn, this.principal,usu);
+                    break;
+                case "BIBLIOTECARIO":
+                    System.out.println("Home BIBLIOTECARIO "+usu);
+                    home = new HomeBibliotecario(conn, this.principal,usu);
+                    break;
+                case "AFILIADO":
+                    System.out.println("Home AFILIADO "+usu);
+                    home = new HomeAfiliado(conn, this.principal,usu);
+                    break;
+                default:
+                    home = this;
+            }
             this.principal.cambiarPanel(home);
         } else {
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
@@ -154,7 +173,7 @@ public class Login extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        Registrar registrar = new Registrar(conn, this.principal);
+        Registrar registrar = new Registrar(conn, this.principal,EnumRol.AFILIADO, null);
         this.principal.cambiarPanel(registrar);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

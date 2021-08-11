@@ -13,14 +13,16 @@ import com.diplomado.bibliotheque.connaissances.enums.EnumBoolean;
 import com.diplomado.bibliotheque.connaissances.enums.EnumGenero;
 import com.diplomado.bibliotheque.connaissances.enums.EnumRol;
 import com.diplomado.bibliotheque.connaissances.modelo.Afiliado;
+import com.diplomado.bibliotheque.connaissances.modelo.Bibliotecario;
 import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
-import com.diplomado.bibliotheque.connaissances.modelo.TipoDocumento;
 import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -31,20 +33,26 @@ public class Registrar extends javax.swing.JPanel {
     private final Conexion conn;
     private final Ventana principal;
     private TipoDocumentoController tdController;
+    private final EnumRol enumRol;
+    private final Usuario usuario;
     
     /**
      * Creates new form Registrar
      * 
      * @param conn
      * @param principal
+     * @param enumRol
      */
-    public Registrar(Conexion conn,Ventana principal) {
+    public Registrar(Conexion conn,Ventana principal,EnumRol enumRol, Usuario usuario) {
         initComponents();
         this.conn = conn;
         this.principal = principal;
+        this.enumRol = enumRol;
+        this.usuario = usuario;
+        lblTitulo.setText("Registrar "+this.enumRol.getNombre().toLowerCase());
         cargarTiposDocumentos();
         cargarGeneros();
-        System.out.println("Hola Registro");
+        System.out.println("Hola Registro "+this.enumRol.getNombre());
         
     }
     
@@ -73,7 +81,7 @@ public class Registrar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -94,7 +102,7 @@ public class Registrar extends javax.swing.JPanel {
         cbGenero = new javax.swing.JComboBox<>();
         txtContrasena = new javax.swing.JPasswordField();
 
-        jLabel1.setText("REGISTRARME");
+        lblTitulo.setText("REGISTRARME");
 
         jLabel2.setText("Usuario:");
         jLabel2.setToolTipText("Usuario:");
@@ -177,14 +185,14 @@ public class Registrar extends javax.swing.JPanel {
                         .addGap(153, 153, 153)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
-                            .addComponent(jLabel1))))
+                            .addComponent(lblTitulo))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lblTitulo)
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -218,9 +226,9 @@ public class Registrar extends javax.swing.JPanel {
                     .addComponent(jLabel10)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(46, 46, 46))
@@ -232,41 +240,86 @@ public class Registrar extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:        
         UsuarioController usController = new UsuarioController(conn.getConnection());
-        Usuario usuario = new Usuario();
-        usuario.setUsuario(txtUsuario.getText());
-        usuario.setContrasena(new String(txtContrasena.getPassword()));
-        System.out.println("Contraseña ingresada "+usuario.getContrasena());
-        usuario.setCorreo(txtCorreo.getText());
-        usuario.setFechaModificacionClave(new Date());
-        usuario.setRol(EnumRol.AFILIADO);
-        usuario = usController.registrarUsuario(usuario);
-        if(usuario != null){
-            System.out.println("Usuario creado id "+usuario.getId());
-            Afiliado afiliado = new Afiliado();
-            afiliado.setUsuario(usuario);
-            afiliado.setApellido(txtApellido.getText());
-            afiliado.setEstado(EnumBoolean.SI);
-            afiliado.setFechaAfiliacion(new Date());
-            try {
-                afiliado.setFechaNacimiento(FechaConverter.stringADate(txtFechaNacimiento.getText()));
-            } catch (ParseException ex) {
-                Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            afiliado.setGenero(EnumGenero.consultarGenero((String) cbGenero.getSelectedItem()));
-            afiliado.setNombre(txtNombre.getText());
-            afiliado.setNumeroDocumento(txtNumeroDocumento.getText());
-            afiliado.setTipoDocumento(tdController.consultarTipoDocumentoPorDescripcion((String) cbTipoDocumento.getSelectedItem()));
+        Usuario usuarioTemp = new Usuario();
+        usuarioTemp.setUsuario(txtUsuario.getText());
+        usuarioTemp.setContrasena(new String(txtContrasena.getPassword()));
+        System.out.println("Contraseña ingresada "+usuarioTemp.getContrasena());
+        usuarioTemp.setCorreo(txtCorreo.getText());
+        usuarioTemp.setFechaModificacionClave(new Date());
+        usuarioTemp.setRol(this.enumRol);
+        usuarioTemp = usController.registrarUsuario(usuarioTemp);
+        if(usuarioTemp != null){
+            System.out.println("Usuario creado id "+usuarioTemp.getId());
             PersonaController pController = new PersonaController(conn.getConnection());
-            pController.registrarUsuario(afiliado);
+            Boolean creacionCorrecta = false;
+            if(this.enumRol == EnumRol.AFILIADO) {
+                creacionCorrecta = registrarAfiliado(usuarioTemp,pController);
+            }else if(this.enumRol == EnumRol.BIBLIOTECARIO) {
+                creacionCorrecta = registrarBibliotecario(usuarioTemp,pController);
+            }
+            if(creacionCorrecta){
+                JOptionPane.showMessageDialog(null, "Se a creado el "+this.enumRol.getNombre().toLowerCase()+" correctamente");
+                JPanel retorno;
+                if(null == this.enumRol){
+                    retorno = this;
+                } else switch (this.enumRol) {
+                    case AFILIADO:
+                        retorno = new Login(this.conn, this.principal);
+                        break;
+                    case BIBLIOTECARIO:
+                        retorno = new HomeAdministrador(this.conn, this.principal, this.usuario);
+                        break;
+                    default:
+                        retorno = this;
+                        break;
+                }
+                this.principal.cambiarPanel(retorno);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ha ocurrido un error al crear el "+this.enumRol.getNombre().toLowerCase()+" correctamente");
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private Boolean registrarAfiliado(Usuario usuario, PersonaController pController){
+        Afiliado afiliado = new Afiliado();
+        afiliado.setUsuario(usuario);
+        afiliado.setApellido(txtApellido.getText());
+        afiliado.setEstado(EnumBoolean.SI);
+        afiliado.setFechaAfiliacion(new Date());
+        try {
+            afiliado.setFechaNacimiento(FechaConverter.stringADate(txtFechaNacimiento.getText()));
+        } catch (ParseException ex) {
+            Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        afiliado.setGenero(EnumGenero.consultarGenero((String) cbGenero.getSelectedItem()));
+        afiliado.setNombre(txtNombre.getText());
+        afiliado.setNumeroDocumento(txtNumeroDocumento.getText());
+        afiliado.setTipoDocumento(tdController.consultarTipoDocumentoPorDescripcion((String) cbTipoDocumento.getSelectedItem()));
+        return pController.registrarUsuario(afiliado);
+    }
+    
+    private Boolean registrarBibliotecario(Usuario usuario, PersonaController pController){
+        Bibliotecario bibliotecario = new Bibliotecario();
+        bibliotecario.setUsuario(usuario);
+        bibliotecario.setApellido(txtApellido.getText());
+        bibliotecario.setEstado(EnumBoolean.SI);
+        bibliotecario.setFechaContratacion(new Date());
+        try {
+            bibliotecario.setFechaNacimiento(FechaConverter.stringADate(txtFechaNacimiento.getText()));
+        } catch (ParseException ex) {
+            Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bibliotecario.setGenero(EnumGenero.consultarGenero((String) cbGenero.getSelectedItem()));
+        bibliotecario.setNombre(txtNombre.getText());
+        bibliotecario.setNumeroDocumento(txtNumeroDocumento.getText());
+        bibliotecario.setTipoDocumento(tdController.consultarTipoDocumentoPorDescripcion((String) cbTipoDocumento.getSelectedItem()));
+        return pController.registrarUsuario(bibliotecario);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbGenero;
     private javax.swing.JComboBox<String> cbTipoDocumento;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -276,6 +329,7 @@ public class Registrar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtCorreo;

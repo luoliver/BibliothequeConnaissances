@@ -5,6 +5,7 @@
  */
 package com.diplomado.bibliotheque.connaissances.vista;
 
+import com.diplomado.bibliotheque.connaissances.enums.EnumRol;
 import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
 import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
 
@@ -12,7 +13,7 @@ import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
  *
  * @author HP
  */
-public class Home extends javax.swing.JPanel {
+public class HomeAdministrador extends javax.swing.JPanel {
 
     private Conexion conn;
     private Ventana principal;
@@ -20,7 +21,7 @@ public class Home extends javax.swing.JPanel {
     /**
      * Creates new form Home
      */
-    public Home(Conexion conn,Ventana principal, Usuario usuario) {
+    public HomeAdministrador(Conexion conn,Ventana principal, Usuario usuario) {
         initComponents();
         this.conn = conn;
         this.principal = principal;
@@ -39,29 +40,50 @@ public class Home extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        btnRegistrarBibliotecario = new javax.swing.JButton();
 
         jLabel1.setText("Hola");
+
+        btnRegistrarBibliotecario.setText("Registrar Bibliotecario");
+        btnRegistrarBibliotecario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarBibliotecarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel1)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btnRegistrarBibliotecario))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jLabel1)))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jLabel1)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegistrarBibliotecario)
+                .addContainerGap(246, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegistrarBibliotecarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBibliotecarioActionPerformed
+        Registrar registrar = new Registrar(conn, this.principal,EnumRol.BIBLIOTECARIO,this.usuario);
+        this.principal.cambiarPanel(registrar);
+    }//GEN-LAST:event_btnRegistrarBibliotecarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrarBibliotecario;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
