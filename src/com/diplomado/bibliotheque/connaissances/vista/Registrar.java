@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.diplomado.bibliotheque.connaissances.vista;
 
 import com.diplomado.bibliotheque.connaissances.controlador.PersonaController;
@@ -24,10 +19,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author HP
- */
 public class Registrar extends javax.swing.JPanel {
 
     private final Conexion conn;
@@ -42,6 +33,7 @@ public class Registrar extends javax.swing.JPanel {
      * @param conn
      * @param principal
      * @param enumRol
+     * @param usuario
      */
     public Registrar(Conexion conn,Ventana principal,EnumRol enumRol, Usuario usuario) {
         initComponents();

@@ -18,8 +18,8 @@ import javax.swing.JPanel;
  */
 public class Login extends javax.swing.JPanel {
 
-    private Conexion conn;
-    private Ventana principal;
+    private final Conexion conn;
+    private final Ventana principal;
 
     public Login(Conexion conn,Ventana principal) {
         initComponents();

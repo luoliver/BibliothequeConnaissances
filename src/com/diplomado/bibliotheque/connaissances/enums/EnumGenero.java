@@ -9,7 +9,7 @@ public enum EnumGenero {
     FEMENINO("FEMENINO"),
     OTRO("OTRO");
     
-    private String genero;
+    private final String genero;
     
     private EnumGenero(String genero){
         this.genero = genero;

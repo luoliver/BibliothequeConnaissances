@@ -8,12 +8,9 @@ package com.diplomado.bibliotheque.connaissances.controlador;
 import com.diplomado.bibliotheque.connaissances.convertidor.FechaConverter;
 import com.diplomado.bibliotheque.connaissances.modelo.Afiliado;
 import com.diplomado.bibliotheque.connaissances.modelo.Bibliotecario;
-import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
-import com.diplomado.bibliotheque.connaissances.utils.UtilidadSeguridad;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.Format;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

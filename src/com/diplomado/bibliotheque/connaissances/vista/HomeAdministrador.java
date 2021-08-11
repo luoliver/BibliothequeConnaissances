@@ -15,11 +15,14 @@ import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
  */
 public class HomeAdministrador extends javax.swing.JPanel {
 
-    private Conexion conn;
-    private Ventana principal;
-    private Usuario usuario;
+    private final Conexion conn;
+    private final Ventana principal;
+    private final Usuario usuario;
     /**
      * Creates new form Home
+     * @param conn
+     * @param principal
+     * @param usuario
      */
     public HomeAdministrador(Conexion conn,Ventana principal, Usuario usuario) {
         initComponents();
@@ -41,6 +44,7 @@ public class HomeAdministrador extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         btnRegistrarBibliotecario = new javax.swing.JButton();
+        btnCerrarSession = new javax.swing.JButton();
 
         jLabel1.setText("Hola");
 
@@ -48,6 +52,16 @@ public class HomeAdministrador extends javax.swing.JPanel {
         btnRegistrarBibliotecario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarBibliotecarioActionPerformed(evt);
+            }
+        });
+
+        btnCerrarSession.setForeground(new java.awt.Color(0, 0, 204));
+        btnCerrarSession.setText("Cerrar Sesion");
+        btnCerrarSession.setBorder(null);
+        btnCerrarSession.setBorderPainted(false);
+        btnCerrarSession.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSessionActionPerformed(evt);
             }
         });
 
@@ -59,20 +73,25 @@ public class HomeAdministrador extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(btnRegistrarBibliotecario))
+                        .addComponent(btnRegistrarBibliotecario)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(164, 164, 164)
-                        .addComponent(jLabel1)))
-                .addContainerGap(215, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSession)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnCerrarSession))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistrarBibliotecario)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -81,8 +100,14 @@ public class HomeAdministrador extends javax.swing.JPanel {
         this.principal.cambiarPanel(registrar);
     }//GEN-LAST:event_btnRegistrarBibliotecarioActionPerformed
 
+    private void btnCerrarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSessionActionPerformed
+        Login login = new Login(conn, this.principal);
+        this.principal.cambiarPanel(login);
+    }//GEN-LAST:event_btnCerrarSessionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSession;
     private javax.swing.JButton btnRegistrarBibliotecario;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

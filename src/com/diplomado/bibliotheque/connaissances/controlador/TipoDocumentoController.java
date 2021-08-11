@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 public class TipoDocumentoController {
     
-    private Connection conn;
+    private final Connection conn;
     
     public TipoDocumentoController(Connection conn) {
         this.conn = conn;

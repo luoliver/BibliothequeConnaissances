@@ -4,8 +4,8 @@ public enum EnumBoolean {
     SI("S","Si"),
     NO("N","No");
     
-    private String valor;
-    private String nombre;
+    private final String valor;
+    private final String nombre;
     
     private EnumBoolean(String valor, String nombre){
         this.valor = valor;

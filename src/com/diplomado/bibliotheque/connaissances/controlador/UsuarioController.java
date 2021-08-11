@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  */
 public class UsuarioController {
     
-    private Connection conn;
+    private final Connection conn;
     
     public UsuarioController(Connection conn) {
         this.conn = conn;

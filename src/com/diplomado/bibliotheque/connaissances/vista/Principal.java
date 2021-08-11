@@ -1,12 +1,6 @@
 package com.diplomado.bibliotheque.connaissances.vista;
 
-import com.diplomado.bibliotheque.connaissances.controlador.TipoDocumentoController;
-import com.diplomado.bibliotheque.connaissances.controlador.UsuarioController;
-import com.diplomado.bibliotheque.connaissances.enums.EnumRol;
 import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
-import com.diplomado.bibliotheque.connaissances.modelo.TipoDocumento;
-import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
-import java.util.List;
 
 public class Principal extends javax.swing.JFrame {
 
