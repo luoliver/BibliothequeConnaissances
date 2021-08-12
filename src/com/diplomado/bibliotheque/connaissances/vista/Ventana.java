@@ -1,6 +1,6 @@
 package com.diplomado.bibliotheque.connaissances.vista;
 
-import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
+import com.diplomado.bibliotheque.connaissances.conexion.Conexion;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 

@@ -3,29 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/modelo/Conexion.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/controlador/PersonaController.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/vista/Home.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/enums/EnumBoolean.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/controlador/UsuarioController.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/controlador/TipoDocumentoController.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/modelo/Afiliado.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/convertidor/TipoDocumentoConverter.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/utils/UtilidadSeguridad.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/convertidor/FechaConverter.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/modelo/Usuario.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/vista/Registrar.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/vista/Principal.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/convertidor/UsuarioConverter.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/modelo/Libro.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/modelo/Bibliotecario.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/enums/EnumRol.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/vista/Login.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/modelo/Autor.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/modelo/Persona.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/vista/Ventana.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/vista/Principal2.java</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/enums/EnumGenero.java</file>
+            <file>file:/C:/Users/marce/Documents/NetBeansProjects/BibliothequeConnaissances/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/vista/crudLibros.java</file>
+            <file>file:/C:/Users/marce/Documents/NetBeansProjects/BibliothequeConnaissances/BibliothequeConnaissances/src/com/diplomado/bibliotheque/connaissances/controlador/LibroController.java</file>
         </group>
     </open-files>
 </project-private>

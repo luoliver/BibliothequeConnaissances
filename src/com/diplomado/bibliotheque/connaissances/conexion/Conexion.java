@@ -1,4 +1,4 @@
-package com.diplomado.bibliotheque.connaissances.modelo;
+package com.diplomado.bibliotheque.connaissances.conexion;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 
 public class Conexion {
     private String nombreBd = "bibliothequeconnaissances";
-    private String usuario="luisMysql";
-    private String contrasena="mysqlLuis";
+    private String usuario="root";
+    private String contrasena="";
     private String url="jdbc:mysql://localhost:3306/"+nombreBd+"?useUnicode=true&useJDBCCompliantTimeZoneShift=true&useLegacyDateTimeCode=false&serverTimezone=UTC";
     
     Connection conn = null;
@@ -30,7 +30,7 @@ public class Conexion {
        return conn;
    }
    
-   public void cerrarConexion(){
+    public void cerrarConexion(){
         try {
             this.conn.close();
         } catch (SQLException ex) {

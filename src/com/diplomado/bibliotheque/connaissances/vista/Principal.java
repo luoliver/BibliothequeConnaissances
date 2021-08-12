@@ -1,6 +1,6 @@
 package com.diplomado.bibliotheque.connaissances.vista;
 
-import com.diplomado.bibliotheque.connaissances.modelo.Conexion;
+import com.diplomado.bibliotheque.connaissances.conexion.Conexion;
 
 public class Principal extends javax.swing.JFrame {
 
