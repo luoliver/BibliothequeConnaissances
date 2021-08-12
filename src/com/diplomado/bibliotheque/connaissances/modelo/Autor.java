@@ -2,8 +2,11 @@ package com.diplomado.bibliotheque.connaissances.modelo;
 
 public class Autor extends Persona{
     
+    
     private int Id;
     private String tipoGeneroEscritura;
+    
+    
 
     public int getId() {
         return Id;

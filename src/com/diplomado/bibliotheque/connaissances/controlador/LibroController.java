@@ -42,7 +42,7 @@ public class LibroController {
     } 
     // Metodo para poder listar los libros
     public List<Libro> consultarLibros() {
-        Statement s;
+            Statement s;
         try {
             s = this.conn.createStatement();
             ResultSet rs = s.executeQuery ("select * from Libro");

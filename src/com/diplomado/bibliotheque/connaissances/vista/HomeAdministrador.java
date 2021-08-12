@@ -48,7 +48,7 @@ public class HomeAdministrador extends javax.swing.JPanel {
         btnCerrarSession = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRegistrarAfiliado = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -82,12 +82,12 @@ public class HomeAdministrador extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(204, 204, 255));
         jLabel3.setText("Admin");
 
-        jButton1.setBackground(new java.awt.Color(153, 204, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Registrar Afiliado");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarAfiliado.setBackground(new java.awt.Color(153, 204, 255));
+        btnRegistrarAfiliado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnRegistrarAfiliado.setText("Registrar Afiliado");
+        btnRegistrarAfiliado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegistrarAfiliadoActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class HomeAdministrador extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(btnRegistrarBibliotecario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(btnRegistrarAfiliado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addComponent(jLabel3)
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -139,7 +139,7 @@ public class HomeAdministrador extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addComponent(btnRegistrarBibliotecario)
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(btnRegistrarAfiliado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrarSession)
                 .addGap(20, 20, 20))
@@ -159,9 +159,10 @@ public class HomeAdministrador extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnRegistrarAfiliadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAfiliadoActionPerformed
+        Registrar registrar = new Registrar(conn, this.principal,EnumRol.AFILIADO,this.usuario);
+        this.principal.cambiarPanel(registrar);
+    }//GEN-LAST:event_btnRegistrarAfiliadoActionPerformed
 
     private void btnCerrarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSessionActionPerformed
         Login login = new Login(conn, this.principal);
@@ -176,8 +177,8 @@ public class HomeAdministrador extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSession;
+    private javax.swing.JButton btnRegistrarAfiliado;
     private javax.swing.JButton btnRegistrarBibliotecario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
