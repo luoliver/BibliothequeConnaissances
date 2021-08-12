@@ -1,7 +1,7 @@
 
 package com.diplomado.bibliotheque.connaissances.controlador;
  import com.diplomado.bibliotheque.connaissances.modelo.Libro;
- import com.diplomado.bibliotheque.connaissances.conexion.Conexion;
+ 
 import com.diplomado.bibliotheque.connaissances.convertidor.LibroConverter;
  import java.sql.Connection;
  import java.sql.PreparedStatement;

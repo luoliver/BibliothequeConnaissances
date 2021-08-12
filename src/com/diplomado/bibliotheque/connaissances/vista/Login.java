@@ -189,7 +189,7 @@ public class Login extends javax.swing.JPanel {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         UsuarioController uc = new UsuarioController(conn.getConnection());
-        Usuario usu = uc.logearUsuario(txtUsuario.getText(), txtContrasena.getSelectedText());
+        Usuario usu = uc.logearUsuario(txtUsuario.getText(), new String (txtContrasena.getPassword()));
         if(usu != null){
             System.out.println("Usuario "+usu.getCorreo() + usu.getRol());
             JPanel home;

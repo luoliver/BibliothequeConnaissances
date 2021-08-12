@@ -11,23 +11,6 @@ public class Libro {
     private int cantidad;
     private Date fechaPublicacion;
 
-    public Libro(int id, String Codigo, String nombre, String editorial, int categoria, int autor, int cantidad, Date fechaPublicacion) {
-        this.id = id;
-        this.Codigo = Codigo;
-        this.nombre = nombre;
-        this.editorial = editorial;
-        this.categoria = categoria;
-        this.autor = autor;
-        this.cantidad = cantidad;
-        this.fechaPublicacion = fechaPublicacion;
-    }
-
-    public Libro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-       
-    
 
     public int getId() {
         return id;

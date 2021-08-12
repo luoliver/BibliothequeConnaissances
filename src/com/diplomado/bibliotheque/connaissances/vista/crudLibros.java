@@ -13,6 +13,7 @@ public class crudLibros extends javax.swing.JFrame {
     DefaultTableModel modelo;
     LibroController clibro;
     private final Conexion conn;
+    private LibroController lccontroller;
     
     public crudLibros(Conexion conn) {
         initComponents();
@@ -32,19 +33,24 @@ public class crudLibros extends javax.swing.JFrame {
       for(int i=0; i<listaLibro.size();i++){
        ob[0]=listaLibro.get(i).getId();
        ob[1]=listaLibro.get(i).getCodigo();
-       ob[3]=listaLibro.get(i).getNombre();
-       ob[4]=listaLibro.get(i).getEditorial();
-       ob[5]=listaLibro.get(i).getCategoria();
-       ob[6]=listaLibro.get(i).getAutor();
-       ob[7]=listaLibro.get(i).getCantidad();
-       ob[8]=listaLibro.get(i).getFechaPublicacion();
+       ob[2]=listaLibro.get(i).getNombre();
+       ob[3]=listaLibro.get(i).getEditorial();
+       ob[4]=listaLibro.get(i).getCategoria();
+       ob[5]=listaLibro.get(i).getAutor();
+       ob[6]=listaLibro.get(i).getCantidad();
+       ob[7]=listaLibro.get(i).getFechaPublicacion();
        modelo.addRow(ob);
       
       }
       
-    
     }
-    
+//    private void cargarCategorias() {
+//        lccontroller = new LibroController(conn.getConnection());
+//        combocategorias.addItem("Seleccione una opción");
+//        lccontroller.consultarLibros().forEach((libro) -> {
+//            combocategorias.addItem(libro.getCategoria());
+//        });
+//    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
