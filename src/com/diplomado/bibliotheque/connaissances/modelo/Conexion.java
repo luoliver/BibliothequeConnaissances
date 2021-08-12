@@ -1,6 +1,8 @@
 package com.diplomado.bibliotheque.connaissances.modelo;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Conexion {
     private String nombreBd = "bibliothequeconnaissances";
@@ -26,5 +28,13 @@ public class Conexion {
    
    public Connection getConnection(){
        return conn;
+   }
+   
+   public void cerrarConexion(){
+        try {
+            this.conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
    }
 }
