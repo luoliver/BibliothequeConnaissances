@@ -8,7 +8,6 @@ package com.diplomado.bibliotheque.connaissances.vista;
 import com.diplomado.bibliotheque.connaissances.conexion.Conexion;
 import com.diplomado.bibliotheque.connaissances.controlador.AfiliadoController;
 import com.diplomado.bibliotheque.connaissances.enums.EnumRol;
-import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
 import com.diplomado.bibliotheque.connaissances.modelo.Afiliado;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +17,15 @@ import javax.swing.table.DefaultTableModel;
 
 public class afiliados extends javax.swing.JFrame {
 
-    private Conexion conn;
-    private Ventana principal;
-    private Usuario usuario;
+    private final Conexion conn;
+    private final Ventana principal;
     DefaultTableModel modelo;
     AfiliadoController AfCon;
    
-    public afiliados(Conexion conn) {
+    public afiliados(Conexion conn, Ventana principal) {
          initComponents();
         this.conn = conn;
         this.principal = principal;
-        this.usuario = usuario;
-        jLabel1.setText("Hola Afiliaado " + this.usuario.getUsuario());
         System.out.println("Hola Afiliado");
          this.AfCon = new AfiliadoController(conn.getConnection());
         modelo = (DefaultTableModel) tblafiliado.getModel();

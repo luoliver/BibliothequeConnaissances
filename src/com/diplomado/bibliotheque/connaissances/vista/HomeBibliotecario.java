@@ -2,7 +2,6 @@
 package com.diplomado.bibliotheque.connaissances.vista;
 
 import com.diplomado.bibliotheque.connaissances.conexion.Conexion;
-import com.diplomado.bibliotheque.connaissances.enums.EnumRol;
 import com.diplomado.bibliotheque.connaissances.modelo.Usuario;
 
 /**
@@ -167,7 +166,7 @@ public class HomeBibliotecario extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       afiliados Af = new afiliados(this.conn);
+       afiliados Af = new afiliados(this.conn,this.principal);
       Af .setVisible(true);
        this.setVisible(false);
 //        Registrar registrar = new Registrar(conn, this.principal,EnumRol.AFILIADO, null);
