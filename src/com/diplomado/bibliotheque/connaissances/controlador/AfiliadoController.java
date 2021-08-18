@@ -30,11 +30,15 @@ public class AfiliadoController {
             s = this.conn.createStatement();
             ResultSet rs = s.executeQuery ("select * from persona_Afiliado");
             List<Afiliado> listaAfiliado = new ArrayList<>();
+            TipoDocumentoController tpc = new TipoDocumentoController(conn);
+            UsuarioController uc = new UsuarioController(conn);
             while (rs.next())
             {
-                listaAfiliado.add(AfiliadoConverter.sentenciaAAfiliado(rs));
-            }
-            
+                Afiliado afiliado = AfiliadoConverter.sentenciaAAfiliado(rs);
+                afiliado.setTipoDocumento(tpc.consultarTipoDocumentoPorId(afiliado.getTipoDocumento().getId()));
+                afiliado.setUsuario(uc.consultarUsuarioPorId(afiliado.getUsuario().getId()));
+                listaAfiliado.add(afiliado);
+            }            
             return listaAfiliado;
         } catch (SQLException ex) {
             Logger.getLogger(TipoDocumentoController.class.getName()).log(Level.SEVERE, null, ex);

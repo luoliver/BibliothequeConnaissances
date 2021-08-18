@@ -12,6 +12,14 @@ public class Usuario {
     private Date fechaModificacionClave;
     private EnumRol rol;
 
+    public Usuario(int id) {
+        this.id = id;
+    }
+
+    public Usuario() {
+        //Constructor vacio
+    }
+
     /**
      * @return the id
      */

@@ -52,4 +52,19 @@ public class TipoDocumentoController {
         }
         return null;
     }
+    
+    public TipoDocumento consultarTipoDocumentoPorId(int id) {
+        try {
+            PreparedStatement s = this.conn.prepareStatement("select * from TIPO_DOCUMENTO where ID = ?");
+            s.setInt(1, id);
+            ResultSet rs = s.executeQuery();
+            System.out.println("TipoDocumetno consultar id " + rs);
+            while (rs.next()){
+                return (TipoDocumentoConverter.sentenciaATipoDocumento(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TipoDocumentoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

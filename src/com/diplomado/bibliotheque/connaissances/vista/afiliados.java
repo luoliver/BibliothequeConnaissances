@@ -42,14 +42,14 @@ public class afiliados extends javax.swing.JFrame {
       Object ob[] = new Object[10];
       for(int i=0; i<listaAfiliado.size();i++){
        ob[0]=listaAfiliado.get(i).getId();
-       ob[1]=listaAfiliado.get(i).getTipoDocumento();
+       ob[1]=listaAfiliado.get(i).getTipoDocumento().getDescripcion();
        ob[2]=listaAfiliado.get(i).getNumeroDocumento();
        ob[3]=listaAfiliado.get(i).getNombre();
        ob[4]=listaAfiliado.get(i).getApellido();
        ob[5]=listaAfiliado.get(i).getFechaNacimiento();
        ob[6]=listaAfiliado.get(i).getGenero();
        ob[7]=listaAfiliado.get(i).getEstado();
-       ob[8]=listaAfiliado.get(i).getUsuario();
+       ob[8]=listaAfiliado.get(i).getUsuario().getUsuario();
        ob[9]=listaAfiliado.get(i).getFechaAfiliacion();
        modelo.addRow(ob);
       

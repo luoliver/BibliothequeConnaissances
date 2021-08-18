@@ -11,6 +11,14 @@ public enum EnumBoolean {
         this.valor = valor;
         this.nombre = nombre;
     }
+    
+    public static EnumBoolean consultarBooleanPorValor(String valor) {
+        for(EnumBoolean enumBoolean :EnumBoolean.values()){
+            if(enumBoolean.getValor() == null ? valor == null : enumBoolean.getValor().equals(valor))
+                return enumBoolean;
+        }
+        return null;
+    }
 
     /**
      * @return the valor

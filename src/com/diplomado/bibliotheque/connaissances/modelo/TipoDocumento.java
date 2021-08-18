@@ -6,6 +6,14 @@ public class TipoDocumento {
     private String nombre;
     private String descripcion;
 
+    public TipoDocumento(int id) {
+        this.id = id;
+    }
+
+    public TipoDocumento() {
+        //Constructor vacio
+    }
+
     /**
      * @return the id
      */

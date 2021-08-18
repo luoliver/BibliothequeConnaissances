@@ -83,4 +83,19 @@ public class UsuarioController {
         }
         return null;  
     }
+    
+    public Usuario consultarUsuarioPorId(int id) {
+        try {
+            PreparedStatement s = this.conn.prepareStatement("select * from USUARIO where ID = ?");
+            s.setInt(1, id);
+            ResultSet rs = s.executeQuery();
+            System.out.println("Usuario consultar id " + rs);
+            while (rs.next()){
+                return (UsuarioConverter.sentenciaAUsuario(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TipoDocumentoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }
