@@ -34,8 +34,11 @@ public class Registrar extends javax.swing.JPanel {
      * @param principal
      * @param enumRol
      * @param usuario
+     * 
      */
-    public Registrar(Conexion conn,Ventana principal,EnumRol enumRol, Usuario usuario) {
+    
+    
+    public Registrar(Conexion conn, Ventana principal, EnumRol enumRol, Usuario usuario) {
         initComponents();
         this.conn = conn;
         this.principal = principal;
@@ -45,9 +48,14 @@ public class Registrar extends javax.swing.JPanel {
         cargarTiposDocumentos();
         cargarGeneros();
         System.out.println("Hola Registro "+this.enumRol.getNombre());
-        
     }
+
     
+
+    
+
+    
+
     private void cargarTiposDocumentos() {
         tdController = new TipoDocumentoController(conn.getConnection());
         cbTipoDocumento.addItem("Seleccione una opción");
